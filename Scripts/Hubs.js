@@ -236,7 +236,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1))*(1/8));
+	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1))*(1/6));
 	break_threshhold = 1.3;
     }
 

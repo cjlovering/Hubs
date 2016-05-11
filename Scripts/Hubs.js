@@ -8,7 +8,7 @@
     
     
     //constants
-    var RATE = 100;
+    var RATE = 1000;//100
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
@@ -16,6 +16,7 @@
     var PI180 = Math.pi / 180;
     var N_CUTOFF = 6;
     var SPEED = 5;
+    var DEBUG = true;
     
     //edge requirements  - defined in configure canvas
     var build_threshhold;
@@ -167,9 +168,11 @@
 	    //consider what we want speed to be really start off as
 	    //definitely inverse with # of neighors
 	    //	    xx = ( OFFSET / n ) * this.velocity * cos
-
-	    if(n == -1) { console.log("ERROR-> n:",n); return;}
-		
+	    
+	    if (DEBUG){
+		if(n == -1) { console.log("ERROR-> n:",n); return;}
+		else console.log("SUCCESS-> n:", n);
+	    }
 	    ss.Move(n);
 	    ss.Draw(n);
 	}

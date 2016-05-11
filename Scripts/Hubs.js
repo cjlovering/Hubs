@@ -9,7 +9,7 @@
     
     //constants
     var RATE =  10;//100
-    var BASE_SIZE = 5;
+    var BASE_SIZE = 2;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
     var TWOPI = Math.PI * 2;
@@ -88,7 +88,7 @@
 	    
 	    //goal: stop just going in ducking circles
 	    if(true){
-		console.log("1 || 2", 1 || 2);
+		//		console.log("1 || 2", 1 || 2);
 		
 		this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
 		this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));

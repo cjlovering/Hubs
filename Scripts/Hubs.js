@@ -248,7 +248,10 @@
 	 * gets the color
 	 */
 	color: function(n){
-	    
+	    if (DEBUG2){
+		return "#00FFFF";
+	    }
+		
 	    //light
 	    if ( n < N_CUTOFF ) {
 		return LIGHT[n]

@@ -75,6 +75,11 @@
 	    //move
 	    this.x += Math.round(this.vx * Math.cos(PI180 * this.y));
 	    this.y += Math.round(this.vy * Math.cos(PI180 * this.x));
+	
+	    if (DEBUG){
+		console.log("move - x: ", this.x);
+		console.log("move - y: ", this.y);
+	    }
 	};
 
 	//draw
@@ -90,6 +95,10 @@
 	    ctx.arc(this.x, this.y, paint.size(n), 0, TWOPI, true);
 	    ctx.closePath();
 	    ctx.fill();
+	    if (DEBUG){
+		console.log("draw - x: ", this.x);
+		console.log("draw - y: ", this.y);
+	    }
 	};
     }
 

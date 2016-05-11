@@ -238,6 +238,7 @@
 	 * calculates the distance between the points
 	 */
 	distance: function(x, y, xx, yy){
+	    console.log(x, y, xx, yy);
 	    //TODO: squareroot!!
 	    return Math.round(Math.sqrt(this.square(xx - x) + this.square(yy - y)));
 	},

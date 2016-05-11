@@ -27,7 +27,7 @@
 	    canvas = document.getElementById('hubway');
             
 	    //if its working(?)
-	    if ( canvas.getContext() ){
+	    if ( canvas.getContext ){
 		
 		//get two-d context (as opposed to 3d)
 		ctx = canvas.getContext('2d');

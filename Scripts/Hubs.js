@@ -147,7 +147,7 @@
 	for (s in stars) {
 	    n = 0;
 	    for (z in stars) {
-		if (util.distance(s.x, s.y, z.x, z.y) > (build_threshhold * break_factor)) n+=1;
+		if (util.distance(s.x, s.y, z.x, z.y) > (build_threshhold * break_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses

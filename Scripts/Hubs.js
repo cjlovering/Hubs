@@ -98,10 +98,7 @@
 		console.log("draw 1 - x: ", this.x);
 		console.log("draw 1 - y: ", this.y);
 	    }
-	    if(DEBUG2){
-		if (this.x > canvas.width || this.x < 0) console.log("OUT: x:", x);
-		if (this.y > canvas.width || this.y < 0) console.log("OUT: y:", y);
-	    }
+
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    ctx.globalAlpha = (!(n>1)) ? .05  : ((n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1));
 	    ctx.beginPath();
@@ -173,6 +170,13 @@
 		//I mean, really do we need to check both ways -> this is n^2
 		//I feel like we could check half, like n^2 / 2
 	var ss, zz;
+
+	if(DEBUG2){
+	    var xxx = 0;
+	    var yyy = 0;
+	}
+	   
+
 	for (s in stars) {
 	    ss = stars[s];
 	    n = 0;
@@ -197,9 +201,17 @@
 		if(n == -1) { console.log("ERROR-> n:",n); return;}
 		else console.log("SUCCESS-> n:", n);
 	    }
+	    if(DEBUG2){
+		if (ss.GetX() > canvas.width || ss.GetX() < 0) xxx+=1;
+		if (ss.GetY() > canvas.width || ss.GetY() < 0) yyy+=1;
+	    }
+	    
 	    ss.Move(n);
 	    ss.Draw(n);
 	}
+	if(DEBUG2){
+	    console.log(xxx, yyy);
+	    }
     }
     function drawEdges(){
 	//todo

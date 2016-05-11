@@ -112,7 +112,7 @@
     //todo: fix the conditional + setTimeOut
     function loop(){
 	
-	if (canvas.getContext()) 
+	if ( canvas.getContext ) 
 	    setTimeout(function(){
 		    
 		    // phase 1: draw hubs

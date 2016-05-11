@@ -200,14 +200,14 @@
 		    {
 			var o = (build_threshold - d)/build_threshold;
 			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
-			if (o > 0) { //o > 0
+			if (o > 0 && o != 1) { //o > 0
 			    // c.save();                                                                                                                
-			    c.beginPath();
-			    c.moveTo(pt1.x, pt1.y);
-			    c.lineTo(pt2.x, pt2.y);
+			    ctx.beginPath();
+			    ctx.moveTo(ss.GetX(), ss.GetY());
+			    ctx.lineTo(zz.GetY(), zz.GetY());
 			    // c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
-			    c.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
-			    c.stroke();
+			    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
+			    ctx.stroke();
 			    // c.closePath();                                                                                                           
 			    // c.restore();                                                                                                             
 			}

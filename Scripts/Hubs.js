@@ -8,7 +8,7 @@
     
     
     //constants
-    var RATE = 10;//100
+    var RATE =  5;//100
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
@@ -99,7 +99,7 @@
 		console.log("draw 1 - y: ", this.y);
 	    }
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
-	    ctx.globalAlpha = (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1);
+	    ctx.globalAlpha = (!(n>1)) ? .1  : ((n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1));
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);

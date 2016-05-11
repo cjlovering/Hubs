@@ -17,7 +17,7 @@
     var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 5;
-    var DEBUG = true;
+    var DEBUG = false;
     
     //edge requirements  - defined in configure canvas
     var build_threshhold;
@@ -100,9 +100,6 @@
 	    }
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    ctx.globalAlpha = (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1);
-	    console.log("fill: ", ctx.fillStyle);
-	    console.log("alpha: ", ctx.globalAlpha);
-	    console.log("n: ", n);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);
@@ -136,10 +133,10 @@
 
     //todo: fix the conditional + setTimeOut
     function loop(){
-	console.log("4");
+       
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
-		    console.log("5");
+	
 		    // phase 1: draw hubs
 		    drawStars();
 		    // phase 2: draw edges
@@ -261,8 +258,6 @@
 	 * calculates the distance between the points
 	 */
 	distance: function(x, y, xx, yy){
-	    console.log(x, y, xx, yy);
-	    //TODO: squareroot!!
 	    return Math.round(Math.sqrt(this.square(xx - x) + this.square(yy - y)));
 	},
 	/**

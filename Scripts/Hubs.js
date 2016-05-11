@@ -170,7 +170,7 @@
 	    
 	    if (DEBUG){
 		console.log("ss: ", ss);
-		console.log("getx: ", ss.GetX()
+		console.log("getx: ", ss.GetX());
 		if(n == -1) { console.log("ERROR-> n:",n); return;}
 		else console.log("SUCCESS-> n:", n);
 	    }

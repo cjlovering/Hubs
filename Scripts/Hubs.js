@@ -154,7 +154,7 @@
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
-		if (util.distance(ss.GetX, ss.GetY, zz.GetX, zz.GetY) > (build_threshhold * break_threshhold)) n+=1;
+		if (util.distance(ss.GetX, ss.GetY, zz.GetX, zz.GetY) < (build_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses
@@ -231,7 +231,7 @@
 	 */
 	distance: function(x, y, xx, yy){
 	    //TODO: squareroot!!
-	    return Math.sqrt(this.square(xx - x) + this.square(yy - y));
+	    return Math.round(Math.sqrt(this.square(xx - x) + this.square(yy - y)));
 	},
 	/**
 	 * square :: num -> num

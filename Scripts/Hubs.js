@@ -85,7 +85,7 @@
 	    var vf = (VELOCITY_FACTOR / (n + 2));
 	    
 	    //goal: stop just going in ducking circles
-	    if(n%2){
+	    if(true){
 		this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
 		this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));
 	    } else {

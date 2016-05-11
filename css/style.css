@@ -1,0 +1,16 @@
+/* style.css */
+html, body {
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: 0px;	
+}
+canvas { 
+    display: inline-block;
+    vertical-align: baseline;
+    border:0;
+    margin:0 auto;
+}

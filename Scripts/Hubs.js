@@ -167,7 +167,9 @@
 	    ss.Draw(n);
 	}
     }
-
+    function drawEdges(){
+	//todo
+    }
     
     /**
      *  configureCanvas :: (void) -> (void)

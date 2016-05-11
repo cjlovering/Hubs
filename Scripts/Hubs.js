@@ -237,7 +237,7 @@
 	canvas.height = h;
 	
 	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1))*(1/8));
-	break_threshhold = build_threshhold * 1.3;
+	break_threshhold = 1.3;
     }
 
     //colors, size, and other painting helpers

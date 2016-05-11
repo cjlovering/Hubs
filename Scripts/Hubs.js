@@ -21,8 +21,8 @@
     var DEBUG2 = true;
     
     //edge requirements  - defined in configure canvas
-    var build_threshhold;
-    var break_threshhold;
+    var build_threshold;
+    var break_threshold;
 
     //when we are ready to get going
     $(document).ready(function(){
@@ -192,9 +192,9 @@
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
 
-		if (d < (build_threshhold))
+		if (d < (build_threshold))
 		    {
-			var o = (build_threshhold - d)/build_threshold;
+			var o = (build_threshold - d)/build_threshold;
 			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
 			if (false) { //o > 0
 			    // c.save();                                                                                                                
@@ -258,8 +258,8 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1)) * (1/8));
-	break_threshhold = 1.3;
+	build_threshold = Math.round((w * (canvas.devicePixelRatio || 1)) * (1/8));
+	break_threshold = 1.3;
     }
 
     //colors, size, and other painting helpers

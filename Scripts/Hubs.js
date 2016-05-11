@@ -81,8 +81,12 @@
 
 	//draw
 	this.Draw = function(n){
+	    
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    ctx.globalAlpha = n < N_CUTOFF ? .01 * n : (n < (N_CUTOFF * 2) ? .10 * n : 1);
+	    
+	    console.log(ctx.fillStyle);
+	    console.log(ctx.globalAlpha);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(this.x, this.y, paint.size(n), 0, TWOPI, true);

@@ -73,8 +73,8 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
 
 	    //move
-	    this.x += (this.vx * Math.cos(PI180 * this.y));
-	    this.y += (this.vy * Math.cos(PI180 * this.x));
+	    this.x += Math.round(this.vx * Math.cos(PI180 * this.y));
+	    this.y += Math.round(this.vy * Math.cos(PI180 * this.x));
 	};
 
 	//draw

@@ -163,8 +163,8 @@
 	    //definitely inverse with # of neighors
 	    //	    xx = ( OFFSET / n ) * this.velocity * cos
 	    
-	    s.Move(n);
-	    s.Draw(size(n), color(n));
+	    ss.Move(n);
+	    ss.Draw(size(n), color(n));
 	}
     }
 

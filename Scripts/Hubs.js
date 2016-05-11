@@ -157,7 +157,7 @@
 		zz = stars[z];
 		console.log("ss: ", ss);
 		console.log("zz: ", zz);
-		console.log("getx: ", ss.GetX);
+		console.log("getx: ", ss.GetX());
 		if (util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY()) < (build_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count

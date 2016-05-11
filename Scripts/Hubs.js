@@ -12,8 +12,8 @@
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
-    var TWOPI = Math.pi * 2;
-    var PI180 = Math.pi / 180;
+    var TWOPI = Math.PI * 2;
+    var PI180 = Math.PI / 180;
     var N_CUTOFF = 6;
     var SPEED = 5;
     var DEBUG = true;

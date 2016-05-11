@@ -15,7 +15,8 @@
     var TWOPI = Math.pi * 2;
     var PI180 = Math.pi / 180;
     var N_CUTOFF = 6;
-
+    var SPEED = 5;
+    
     //edge requirements  - defined in configure canvas
     var build_threshhold;
     var break_threshhold;

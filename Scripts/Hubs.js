@@ -17,8 +17,8 @@
     var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 5;
-    var DEBUG = true;
-    var DEBUG2 = false;
+    var DEBUG = false;
+    var DEBUG2 = true;
     
     //edge requirements  - defined in configure canvas
     var build_threshhold;
@@ -71,7 +71,7 @@
 	    if (DEBUG){
 		console.log("move 1 - x: ", this.x);
 		console.log("move 1 - y: ", this.y);
-		console.log("TWOPI: ", PI180);
+		console.log("PI180: ", PI180);
 		console.log("calc: ", Math.round(this.vy * Math.cos(PI180 * this.x)));
 	    }
 	    
@@ -144,7 +144,9 @@
        
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
-	
+		    ctx = canvas.getContext('2d');
+		    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 		    // phase 1: draw hubs
 		    drawStars();
 		    // phase 2: draw edges
@@ -165,8 +167,7 @@
 
           
     function drawStars() {
-	ctx = canvas.getContext('2d');
-	//	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	
 	
 		//speed
 		//die
@@ -189,7 +190,25 @@
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
-		if (util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY()) < (build_threshhold * break_threshhold)) n+=1;
+		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
+
+		if (d < (build_threshhold))
+		    {
+			var o = (build_threshhold - d)/build_threshold;
+			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
+			if (false) { //o > 0
+			    // c.save();                                                                                                                
+			    c.beginPath();
+			    c.moveTo(pt1.x, pt1.y);
+			    c.lineTo(pt2.x, pt2.y);
+			    // c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
+			    c.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
+			    c.stroke();
+			    // c.closePath();                                                                                                           
+			    // c.restore();                                                                                                             
+			}
+			n+=1;
+		    }
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses
@@ -221,6 +240,9 @@
 	    }
     }
     function drawEdges(){
+	//i guess we'll draw edges from both sides, and thatll get the mix of color?
+	//hmmMMMMMMMMM
+
 	//todo
     }
     

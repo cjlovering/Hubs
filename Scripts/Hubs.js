@@ -16,7 +16,7 @@
     var PI180 = Math.PI / 180;
     var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
-    var SPEED = 5;
+    var SPEED = 2;
     var DEBUG = false;
     var DEBUG2 = true;
     

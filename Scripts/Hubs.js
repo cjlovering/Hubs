@@ -18,7 +18,7 @@
     var N_CUTOFF = 6;
     var SPEED = 2;
     var DEBUG = false;
-    var DEBUG2 = true;
+    var DEBUG2 = false;
     
     //edge requirements  - defined in configure canvas
     var build_threshold;
@@ -149,7 +149,7 @@
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
 		    ctx = canvas.getContext('2d');
-		    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+		    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		    // phase 1: draw hubs
 		    drawStars();
@@ -200,7 +200,7 @@
 		    {
 			var o = (build_threshold - d)/build_threshold;
 			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
-			if (false) { //o > 0
+			if (o > 0) { //o > 0
 			    // c.save();                                                                                                                
 			    c.beginPath();
 			    c.moveTo(pt1.x, pt1.y);

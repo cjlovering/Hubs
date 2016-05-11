@@ -29,18 +29,19 @@
             
 	    //if its working(?)
 	    if ( canvas.getContext ){
-		
+		console.log("1");
 		//get two-d context (as opposed to 3d)
 		ctx = canvas.getContext('2d');
-		
+				
 		//configure the size of the canvas + thresholds
 		configureCanvas();
 
 		//create all the stars, pseudo randomly
 		createStars();
-		    
+		console.log("2");
 		// phase 1: draw hubs
 		drawStars();
+		console.log("3");
 		// phase 2: draw edges
 		drawEdges();
 		
@@ -111,10 +112,10 @@
 
     //todo: fix the conditional + setTimeOut
     function loop(){
-	
+	console.log("4");
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
-		    
+		    console.log("5");
 		    // phase 1: draw hubs
 		    drawStars();
 		    // phase 2: draw edges

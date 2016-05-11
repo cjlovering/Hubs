@@ -8,7 +8,7 @@
     
     
     //constants
-    var RATE =  3;//100
+    var RATE =  10;//100
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
@@ -17,7 +17,7 @@
     var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 5;
-    var DEBUG = false;
+    var DEBUG = true;
     var DEBUG2 = false;
     
     //edge requirements  - defined in configure canvas
@@ -107,7 +107,7 @@
 	    }
 
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
-	    ctx.globalAlpha = (!(n>1)) ? .05  : ((n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1));
+	    ctx.globalAlpha = ((!(n>1)) ? .05  : (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2 > 10 ? 10 : N_CUTOFF * 2) ? .1 * n : 1));
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);

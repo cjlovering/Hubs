@@ -146,10 +146,13 @@
 		
 		//I mean, really do we need to check both ways -> this is n^2
 		//I feel like we could check half, like n^2 / 2
+	var ss, zz;
 	for (s in stars) {
+	    ss = stars[s];
 	    n = 0;
 	    for (z in stars) {
-		if (util.distance(s.GetX, s.GetY, z.GetX, z.GetY) > (build_threshhold * break_threshhold)) n+=1;
+		zz = stars[z];
+		if (util.distance(ss.GetX, ss.GetY, zz.GetX, zz.GetY) > (build_threshhold * break_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses

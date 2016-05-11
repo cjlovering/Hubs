@@ -82,7 +82,9 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
 
 	    //move
-	    var vf = (VELOCITY_FACTOR / (n + 2));
+	    var vf = ((VELOCITY_FACTOR - n) / VELOCITY_FACTOR);
+	    vf = vf < 0 ? vf * -1 : vf;
+	    //(VELOCITY_FACTOR / (n + 2));
 	    
 	    //goal: stop just going in ducking circles
 	    if(n%2==0){

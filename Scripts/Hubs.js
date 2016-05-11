@@ -83,11 +83,13 @@
 
 	    //move
 	    var vf = ((VELOCITY_FACTOR - n) / VELOCITY_FACTOR);
-	    vf = vf < 0 ? vf * -1 : vf;
+	    vf = 1; //vf < 0 ? vf * -1 : vf;
 	    //(VELOCITY_FACTOR / (n + 2));
 	    
 	    //goal: stop just going in ducking circles
-	    if(n%2==0){
+	    if(true){
+		console.log("1 || 2", 1 || 2);
+		
 		this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
 		this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));
 	    } else {

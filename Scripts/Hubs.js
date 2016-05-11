@@ -62,7 +62,7 @@
 	this.vx = vx;
 	this.vy = vy;
 	this.GetX = function(){ return this.x; };
-	this.GetY = function(){ return this.h; };
+	this.GetY = function(){ return this.y; };
 	
 	//move
 	this.Move = function(n){

@@ -9,10 +9,10 @@ Idea: Graph of Hubs
 	 direction (sin/cos) is based off speed and color
 	 edges are color white color (thin in the middle)
 	 
-Employed: js, canvas, html5, jcanvas, and ractive (maybe)
+Employed: js, canvas, html5
 
 
 
 #
 View it at: http://cjlovering.github.io/Hubs/
-(not yet live)
+

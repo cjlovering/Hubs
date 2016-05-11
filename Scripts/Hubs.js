@@ -66,6 +66,10 @@
 	
 	//move
 	this.Move = function(n){
+	    if (DEBUG){
+		console.log("move 1 - x: ", this.x);
+		console.log("move 1 - y: ", this.y);
+	    }
 	    //if out of bounds, move towards inbounds - note: this may be unnesscesarily expensive
 	    if ((this.x > canvas.width) && (this.vx > 0)) this.vx *= -1;
 	    if ((this.y > canvas.width) && (this.vy > 0)) this.vy *= -1;
@@ -77,14 +81,17 @@
 	    this.y += Math.round(this.vy * Math.cos(PI180 * this.x));
 	
 	    if (DEBUG){
-		console.log("move - x: ", this.x);
-		console.log("move - y: ", this.y);
+		console.log("move 2 - x: ", this.x);
+		console.log("move 2 - y: ", this.y);
 	    }
 	};
 
 	//draw
 	this.Draw = function(n){
-	    
+	    if (DEBUG){
+		console.log("draw 1 - x: ", this.x);
+		console.log("draw 1 - y: ", this.y);
+	    }
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    ctx.globalAlpha = (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1);
 	    console.log("fill: ", ctx.fillStyle);
@@ -92,12 +99,12 @@
 	    console.log("n: ", n);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
-	    ctx.arc(this.x, this.y, paint.size(n), 0, TWOPI, true);
+	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);
 	    ctx.closePath();
 	    ctx.fill();
 	    if (DEBUG){
-		console.log("draw - x: ", this.x);
-		console.log("draw - y: ", this.y);
+		console.log("draw 2 - x: ", this.x);
+		console.log("draw 2 - y: ", this.y);
 	    }
 	};
     }

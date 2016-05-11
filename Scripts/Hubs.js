@@ -139,7 +139,7 @@
           
     function drawStars() {
 	ctx = canvas.getContext('2d');
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 		//speed
 		//die
@@ -155,9 +155,6 @@
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
-		console.log("ss: ", ss);
-		console.log("zz: ", zz);
-		console.log("getx: ", ss.GetX());
 		if (util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY()) < (build_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
@@ -166,10 +163,14 @@
 		    //lower number of neighbors, the more 'colored' the color
 	    
 	    //consider what we want speed to be really start off as
-	    //definitely inverse with # of neighors
+	  
+
+  //definitely inverse with # of neighors
 	    //	    xx = ( OFFSET / n ) * this.velocity * cos
 	    
 	    if (DEBUG){
+		console.log("ss: ", ss);
+		console.log("getx: ", ss.GetX()
 		if(n == -1) { console.log("ERROR-> n:",n); return;}
 		else console.log("SUCCESS-> n:", n);
 	    }
@@ -231,7 +232,7 @@
 	 */
 	random: function(min, max, step) {
 	    step = step || 1;
-	    return (Math.round(Math.random() * ((max - min)/step)) * step) + min;
+	    return (Math.round(Math.random() * ((max - min) / step)) * step) + min;
 	},
 	/**
 	 * distance :: num num num num -> num

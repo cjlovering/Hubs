@@ -154,6 +154,9 @@
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
+		console.log("ss: ", ss);
+		console.log("zz: ", zz);
+		console.log("getx: ", ss.GetX);
 		if (util.distance(ss.GetX, ss.GetY, zz.GetX, zz.GetY) < (build_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
@@ -164,7 +167,9 @@
 	    //consider what we want speed to be really start off as
 	    //definitely inverse with # of neighors
 	    //	    xx = ( OFFSET / n ) * this.velocity * cos
-	    
+
+	    if(n == -1) { console.log("ERROR-> n:",n); return;}
+		
 	    ss.Move(n);
 	    ss.Draw(n);
 	}

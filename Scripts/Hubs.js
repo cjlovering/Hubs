@@ -24,7 +24,7 @@
     $(document).ready(function(){
 	    
 	    //grab dat canvas
-	    canvas = document.getElementById('hubway');
+	    canvas = document.getElementById('canvas');
             
 	    //if its working(?)
 	    if ( canvas.getContext ){

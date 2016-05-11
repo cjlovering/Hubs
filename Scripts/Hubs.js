@@ -17,7 +17,7 @@
     var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 2;
-    var DEBUG = false;
+    var DEBUG = true;
     var DEBUG2 = false;
     
     //edge requirements  - defined in configure canvas
@@ -112,6 +112,7 @@
 
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    ctx.globalAlpha = ((!(n>1)) ? .05  : (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2 > 10 ? 10 : N_CUTOFF * 2) ? .1 * n : 1));
+	    if(DEBUG)console.log(ctx.globalAlpha);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);
@@ -239,9 +240,6 @@
 	    ss.Move(n);
 	    ss.Draw(n);
 	}
-	if(DEBUG2){
-	    console.log(xxx, yyy);
-	    }
     }
     function drawEdges(){
 	//i guess we'll draw edges from both sides, and thatll get the mix of color?

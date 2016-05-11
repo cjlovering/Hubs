@@ -3,12 +3,12 @@
     //variables
     var canvas, ctx;
     var resizeId;
-    var star_num = 30;
+    var star_num = 50;
     var stars = [];       //create stars
     
     
     //constants
-    var RATE =  5;//100
+    var RATE =  3;//100
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
@@ -18,7 +18,7 @@
     var N_CUTOFF = 6;
     var SPEED = 5;
     var DEBUG = false;
-    var DEBUG2 = true;
+    var DEBUG2 = false;
     
     //edge requirements  - defined in configure canvas
     var build_threshhold;
@@ -159,7 +159,7 @@
           
     function drawStars() {
 	ctx = canvas.getContext('2d');
-	//	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 		//speed
 		//die

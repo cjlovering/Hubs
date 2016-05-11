@@ -83,9 +83,16 @@
 
 	    //move
 	    var vf = (VELOCITY_FACTOR / (n + 2));
-	    this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
-	    this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));
-	
+	    
+	    //goal: stop just going in ducking circles
+	    if(n%2){
+		this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
+		this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));
+	    } else {
+		this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.x));
+		this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.y));
+
+	    }
 	    if (DEBUG){
 		console.log("move 2 - x: ", this.x);
 		console.log("move 2 - y: ", this.y);
@@ -182,7 +189,7 @@
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
-		if (util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY()) < (build_threshhold)) n+=1;
+		if (util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY()) < (build_threshhold * break_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses

@@ -3,12 +3,12 @@
     //variables
     var canvas, ctx;
     var resizeId;
-    var star_num = 10;
+    var star_num = 30;
     var stars = [];       //create stars
     
     
     //constants
-    var RATE = 1000;//100
+    var RATE = 100;//100
     var BASE_SIZE = 5;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    

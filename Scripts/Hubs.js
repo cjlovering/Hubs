@@ -135,7 +135,7 @@
 	for ( var i = 0; i < star_num; i++)
 	    {
 		var x = util.random(0,  canvas.width);
-		var y = util.random((0, canvas.height);
+		var y = util.random(0, canvas.height);
 		var vx = util.random(1, SPEED, .1);
 		var vy = util.random(1, SPEED, .1);
 

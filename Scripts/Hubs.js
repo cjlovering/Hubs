@@ -14,6 +14,7 @@
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
     var TWOPI = Math.PI * 2;
     var PI180 = Math.PI / 180;
+    var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 5;
     var DEBUG = true;
@@ -73,6 +74,7 @@
 		console.log("calc: ", Math.round(this.vy * Math.cos(PI180 * this.x)));
 
 	    }
+	    
 	    //if out of bounds, move towards inbounds - note: this may be unnesscesarily expensive
 	    if ((this.x > canvas.width) && (this.vx > 0)) this.vx *= -1;
 	    if ((this.y > canvas.width) && (this.vy > 0)) this.vy *= -1;
@@ -80,8 +82,8 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
 
 	    //move
-	    this.x += Math.round(this.vx * Math.cos(PI180 * this.y));
-	    this.y += Math.round(this.vy * Math.cos(PI180 * this.x));
+	    this.x += Math.round((VELOCITY_FACTOR / n) * this.vx * Math.cos(PI180 * this.y));
+	    this.y += Math.round((VELOCITY_FACTOR / n) * this.vy * Math.cos(PI180 * this.x));
 	
 	    if (DEBUG){
 		console.log("move 2 - x: ", this.x);

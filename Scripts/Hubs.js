@@ -69,6 +69,9 @@
 	    if (DEBUG){
 		console.log("move 1 - x: ", this.x);
 		console.log("move 1 - y: ", this.y);
+		console.log("TWOPI: ", PI180);
+		console.log("calc: ", Math.round(this.vy * Math.cos(PI180 * this.x)));
+
 	    }
 	    //if out of bounds, move towards inbounds - note: this may be unnesscesarily expensive
 	    if ((this.x > canvas.width) && (this.vx > 0)) this.vx *= -1;

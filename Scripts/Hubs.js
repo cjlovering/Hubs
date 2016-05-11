@@ -18,6 +18,7 @@
     var N_CUTOFF = 6;
     var SPEED = 5;
     var DEBUG = false;
+    var DEBUG2 = true;
     
     //edge requirements  - defined in configure canvas
     var build_threshhold;
@@ -72,7 +73,6 @@
 		console.log("move 1 - y: ", this.y);
 		console.log("TWOPI: ", PI180);
 		console.log("calc: ", Math.round(this.vy * Math.cos(PI180 * this.x)));
-
 	    }
 	    
 	    //if out of bounds, move towards inbounds - note: this may be unnesscesarily expensive
@@ -98,8 +98,12 @@
 		console.log("draw 1 - x: ", this.x);
 		console.log("draw 1 - y: ", this.y);
 	    }
+	    if(DEBUG2){
+		if (this.x > canvas.width || this.x < 0) console.log("OUT: x:", x);
+		if (this.y > canvas.width || this.y < 0) console.log("OUT: y:", y);
+	    }
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
-	    ctx.globalAlpha = (!(n>1)) ? .1  : ((n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1));
+	    ctx.globalAlpha = (!(n>1)) ? .05  : ((n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1));
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(Math.round(this.x), Math.round(this.y), paint.size(n), 0, TWOPI, true);

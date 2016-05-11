@@ -62,7 +62,9 @@
 	this.y = y;
 	this.vx = vx;
 	this.vy = vy;
-
+	this.GetX = function(){ return this.x; };
+	this.GetY = function(){ return this.h; };
+	
 	//move
 	this.Move = function(n){
 	    //if out of bounds, move towards inbounds - note: this may be unnesscesarily expensive
@@ -74,7 +76,7 @@
 	    //move
 	    this.x += (this.vx * Math.cos(PI180 * this.y));
 	    this.y += (this.vy * Math.cos(PI180 * this.x));
-	}
+	};
 
 	//draw
 	this.Draw = function(n){
@@ -85,7 +87,7 @@
 	    ctx.arc(this.x, this.y, paint.size(n), 0, TWOPI, true);
 	    ctx.closePath();
 	    ctx.fill();
-	}
+	};
     }
 
     
@@ -147,7 +149,7 @@
 	for (s in stars) {
 	    n = 0;
 	    for (z in stars) {
-		if (util.distance(s.x, s.y, z.x, z.y) > (build_threshhold * break_threshhold)) n+=1;
+		if (util.distance(s.GetX, s.GetY, z.GetX, z.GetY) > (build_threshhold * break_threshhold)) n+=1;
 	    }
 	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses

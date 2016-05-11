@@ -29,7 +29,6 @@
             
 	    //if its working(?)
 	    if ( canvas.getContext ){
-		console.log("1");
 		//get two-d context (as opposed to 3d)
 		ctx = canvas.getContext('2d');
 				
@@ -38,10 +37,8 @@
 
 		//create all the stars, pseudo randomly
 		createStars();
-		console.log("2");
 		// phase 1: draw hubs
 		drawStars();
-		console.log("3");
 		// phase 2: draw edges
 		drawEdges();
 		
@@ -83,10 +80,10 @@
 	this.Draw = function(n){
 	    
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
-	    ctx.globalAlpha = n < N_CUTOFF ? .01 * n : (n < (N_CUTOFF * 2) ? .10 * n : 1);
-	    
-	    console.log(ctx.fillStyle);
-	    console.log(ctx.globalAlpha);
+	    ctx.globalAlpha = (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2) ? .10 * n : 1);
+	    console.log("fill: ", ctx.fillStyle);
+	    console.log("alpha: ", ctx.globalAlpha);
+	    console.log("n: ", n);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
 	    ctx.arc(this.x, this.y, paint.size(n), 0, TWOPI, true);

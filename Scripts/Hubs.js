@@ -82,8 +82,9 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
 
 	    //move
-	    this.x += Math.round((VELOCITY_FACTOR / n) * this.vx * Math.cos(PI180 * this.y));
-	    this.y += Math.round((VELOCITY_FACTOR / n) * this.vy * Math.cos(PI180 * this.x));
+	    var vf = (VELOCITY_FACTOR / (n + 2));
+	    this.x += Math.round(vf * this.vx * Math.cos(PI180 * this.y));
+	    this.y += Math.round(vf * this.vy * Math.cos(PI180 * this.x));
 	
 	    if (DEBUG){
 		console.log("move 2 - x: ", this.x);

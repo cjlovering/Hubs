@@ -166,7 +166,7 @@
           
     function drawStars() {
 	ctx = canvas.getContext('2d');
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 		//speed
 		//die
@@ -236,7 +236,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1)*(1/6));
+	build_threshhold = Math.round((w * (canvas.devicePixelRatio || 1)*(1/8));
 	break_threshhold = 1.3;
     }
 

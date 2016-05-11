@@ -164,7 +164,7 @@
 	    //	    xx = ( OFFSET / n ) * this.velocity * cos
 	    
 	    ss.Move(n);
-	    ss.Draw(size(n), color(n));
+	    ss.Draw(n);
 	}
     }
 
@@ -206,8 +206,8 @@
 	 * paint.radius :: num -> num
 	 * computes the size of the hub/star
 	 */
-	radius: function(n){
-	    return (1 / n * BASE_SIZE);
+	size: function(n){
+	    return Math.round((1 / n) * BASE_SIZE);
 	}
     }
 

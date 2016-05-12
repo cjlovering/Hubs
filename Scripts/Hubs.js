@@ -291,6 +291,7 @@
 	 * computes the size of the hub/star
 	 */
 	size: function(n){
+	    return BASE_SIZE;
 	    if (n - N_CUTOFF < 1) return BASE_SIZE;
 	    else return Math.round(BASE_SIZE * (n / N_CUTOFF));
 	 

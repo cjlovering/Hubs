@@ -8,7 +8,7 @@
     
     
     //constants
-    var RATE =  10;//100
+    var RATE =  5;//100
     var BASE_SIZE = 2;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
@@ -261,7 +261,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshold = Math.round((w) * (1/8)); //* (canvas.devicePixelRatio || 1)
+	build_threshold = Math.round((w) * (1/10)); //* (canvas.devicePixelRatio || 1)
 	break_threshold = 1.3;
     }
 

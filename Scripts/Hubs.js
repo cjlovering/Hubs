@@ -32,6 +32,7 @@
             
 	    //if its working(?)
 	    if ( canvas.getContext ){
+
 		//get two-d context (as opposed to 3d)
 		ctx = canvas.getContext('2d');
 				
@@ -43,7 +44,7 @@
 		// phase 1: draw hubs
 		drawStars();
 		// phase 2: draw edges
-		drawEdges();
+		//drawEdges();
 		
 		//loops
 		loop();
@@ -146,8 +147,7 @@
 
 
     //todo: fix the conditional + setTimeOut
-    function loop(){
-       
+    function loop(){       
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
 		    ctx = canvas.getContext('2d');
@@ -156,7 +156,7 @@
 		    // phase 1: draw hubs
 		    drawStars();
 		    // phase 2: draw edges
-		    drawEdges();  
+		    //drawEdges();  
 			  
                     loop();
 		    
@@ -190,33 +190,33 @@
 	    var yyy = 0;
 	}
 	   
-
 	for (s in stars) {
+	    var oo = 0;
 	    ss = stars[s];
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
 
-		if (d < (build_threshold))
-		    {
-			var o = (build_threshold - d)/build_threshold;
+		//		if (d < (build_threshold))
+		//  {
+		var o = (build_threshold - d)/build_threshold;
 			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
-			if (o > 0 && o != 1) { //o > 0
+		if (o > 0 && o != 1) { //o > 0
 			    // c.save();                                                                                                                
-			    ctx.beginPath();
-			    ctx.moveTo(ss.GetX(), ss.GetY());
-			    ctx.lineTo(zz.GetY(), zz.GetY());
-			    // c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
-			    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
-			    ctx.stroke();
-			    // c.closePath();                                                                                                           
-			    // c.restore();                                                                                                             
-			}
-			n+=1;
-		    }
+		    ctx.beginPath();
+		    ctx.moveTo(ss.GetX(), ss.GetY());
+		    ctx.lineTo(zz.GetY(), zz.GetY());
+		    // c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
+		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
+		    ctx.stroke();
+		    // c.closePath();                                                                                                           
+		    // c.restore();                                                                                                             
+		    oo+=o;
+		    n+=1;
+		}
 	    }
-	    n -= 1; //remove itself from the count
+	    //	    n -= 1; //remove itself from the count
 		    //speed and color should be inverses
 		    //higher number of neighbors, the brighter the color
 		    //lower number of neighbors, the more 'colored' the color
@@ -239,7 +239,7 @@
 	    }
 	    
 	    ss.Move(n);
-	    ss.Draw(n);
+	    ss.Draw(n, 1 - (oo / n));
 	}
     }
     function drawEdges(){
@@ -291,7 +291,9 @@
 	 * computes the size of the hub/star
 	 */
 	size: function(n){
-	    return Math.round((1 / n) * BASE_SIZE);
+	    if (n - N_CUTOFF < 1) return BASE_SIZE;
+	    else return BASE_SIZE * (n / N_CUTOFF);
+	 
 	}
     }
 

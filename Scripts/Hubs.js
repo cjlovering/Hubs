@@ -292,7 +292,7 @@
 	 */
 	size: function(n){
 	    if (n - N_CUTOFF < 1) return BASE_SIZE;
-	    else return BASE_SIZE * (n / N_CUTOFF);
+	    else return Math.round(BASE_SIZE * (n / N_CUTOFF));
 	 
 	}
     }

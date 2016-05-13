@@ -32,7 +32,7 @@
 			    template: template,
 
 			    data: {
-				threshold: 0.15,
+				threshold: 0.28,
 				star_num: 30,
 				rate: 15,
 				visible: false
@@ -227,7 +227,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	ractive.set("threshold", 1/9); // 
+	//ractive.set("threshold", 1/9); // 
 	//	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
     }
 

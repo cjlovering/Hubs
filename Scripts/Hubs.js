@@ -68,7 +68,7 @@
 	this.GetY = function(){ return this.y; };
 	
 	//move
-	this.Move = function(n){
+	this.Move = function(){
 	    if (DEBUG){
 		console.log("move 1 - x: ", this.x);
 		console.log("move 1 - y: ", this.y);
@@ -83,8 +83,7 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
 
 	    //move
-	    var vf = ((VELOCITY_FACTOR - n) / VELOCITY_FACTOR);
-	    vf = 1; //vf < 0 ? vf * -1 : vf;
+	    
 	    //(VELOCITY_FACTOR / (n + 2));
 	    
 	    //goal: stop just going in ducking circles
@@ -152,8 +151,11 @@
 	    setTimeout(function(){
 		    ctx = canvas.getContext('2d');
 		    ctx.clearRect(0, 0, canvas.width, canvas.height);
+		    
+		    // phase 1: move stars
+		    moveStars();
 
-		    // phase 1: draw hubs
+		    // phase 2: draw
 		    drawStars();
 		    // phase 2: draw edges
 		    //drawEdges();  
@@ -170,8 +172,16 @@
     }
  
     
-
+    /**
+     * moveStars :: (void) -> (void)
+     * moves all the stars
+     */
+    function moveStars(){
+	for (s in stars) stars[s].Move();
+    }
           
+
+
     function drawStars() {
 	
 	
@@ -204,13 +214,14 @@
 			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
 		if (o > 0 && o != 1) { //o > 0
 			    // c.save();                                                                                                                
+		// c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
 		    ctx.lineTo(zz.GetY(), zz.GetY());
-		    // c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
 		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
 		    ctx.stroke();
-		    // c.closePath();                                                                                                           
+		    // c.closePath(); 
+		    
 		    // c.restore();                                                                                                             
 		    oo+=o;
 		    n+=1;
@@ -238,7 +249,7 @@
 		if (ss.GetY() > canvas.width || ss.GetY() < 0) yyy+=1;
 	    }
 	    
-	    ss.Move(n);
+       
 	    ss.Draw(n, 1 - (oo / n));
 	}
     }

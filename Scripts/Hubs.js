@@ -38,11 +38,11 @@
 				visible: false
 			    }
 			});
-		    
+	        
 	    canvas.addEventListener("dblclick", function(eventInfo){
 		    ractive.toggle("visible");
 		});
-
+	    
 
 
 	    //grab dat canvas
@@ -280,4 +280,5 @@
 	    return i * i;
 	}
     }
+  }
 })(); 

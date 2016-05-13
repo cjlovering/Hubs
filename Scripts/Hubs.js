@@ -172,7 +172,7 @@
 		    ctx.lineTo(zz.GetX(), zz.GetY());
 		    //		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
 
-		    ctx.strokeStyle = 'rgba(255, 255, 255, ' + o + ')';	
+		    ctx.strokeStyle = 'rgba(0, 0, 0, ' + o + ')';	
 		    ctx.stroke();
 		    n+=1;
 		}

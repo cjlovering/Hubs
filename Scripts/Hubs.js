@@ -67,7 +67,8 @@
 		//loops
 		loop();
 	    }
-	});
+		}
+		});
 
     /**
      * Star :: num num num num -> lambda (object)
@@ -280,5 +281,5 @@
 	    return i * i;
 	}
     }
-  }
+	
 })(); 

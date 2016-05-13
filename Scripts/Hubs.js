@@ -196,7 +196,9 @@
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
-		var o = ((canvas.width * ractive.get("threshold")) - d)/(canvas.width * ractive.get("threshold"));
+		var t = (ractive.get("threshold") * Math.sqrt(util.square(w) + util.square(h))); //* (canvas.devicePixelRatio || 1)
+
+		var o = (t - d)/t;
 		if (o > 0 && o != 1) { 
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
@@ -225,7 +227,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	ractive.set("threshold", Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)));
+	ractive.set("threshold", 1/9); // 
 	//	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
     }
 

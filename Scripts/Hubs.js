@@ -113,7 +113,7 @@
 
 	    ctx.fillStyle = paint.color(n); //getShade(this.color, ratio); 
 	    
-	    // ctx.globalAlpha = ((!(n>1)) ? .05  : (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2 > 10 ? 10 : N_CUTOFF * 2) ? .1 * n : 1));
+	    ctx.globalAlpha = ((!(n>1)) ? .05  : (n < N_CUTOFF) ? (.05 * n) : (n < (N_CUTOFF * 2 > 10 ? 10 : N_CUTOFF * 2) ? .1 * n : 1));
 	    if(DEBUG)console.log(ctx.globalAlpha);
 	    ctx.beginPath();
 	    //it may be considerably faster to draw triangles over circles
@@ -208,37 +208,16 @@
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
-
-		//		if (d < (build_threshold))
-		//  {
 		var o = (build_threshold - d)/build_threshold;
-			//		var o = (distanceThreshold - calcDistance(pt1, pt2)) / distanceThreshold;
-		if (o > 0 && o != 1) { //o > 0
-			    // c.save();                                                                                                                
-		// c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
+		if (o > 0 && o != 1) { 
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
 		    ctx.lineTo(zz.GetX(), zz.GetY());
 		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
 		    ctx.stroke();
-		    // c.closePath(); 
-		    
-		    // c.restore();                                                                                                             
-		    oo+=o;
 		    n+=1;
 		}
 	    }
-	    //	    n -= 1; //remove itself from the count
-		    //speed and color should be inverses
-		    //higher number of neighbors, the brighter the color
-		    //lower number of neighbors, the more 'colored' the color
-	    
-	    //consider what we want speed to be really start off as
-	  
-
-  //definitely inverse with # of neighors
-	    //	    xx = ( OFFSET / n ) * this.velocity * cos
-	    
 	    if (DEBUG){
 		console.log("ss: ", ss);
 		console.log("getx: ", ss.GetX());

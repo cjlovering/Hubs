@@ -170,7 +170,9 @@
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
 		    ctx.lineTo(zz.GetX(), zz.GetY());
-		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
+		    //		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
+
+		    ctx.strokeStyle = 'rgba(255, 255, 255, ' + o + ')';	
 		    ctx.stroke();
 		    n+=1;
 		}

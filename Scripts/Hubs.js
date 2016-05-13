@@ -218,7 +218,7 @@
 		// c.quadraticCurveTo(pt1.x + 10, pt1.y + 10, pt2.x, pt2.y);                                                                
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
-		    ctx.lineTo(zz.GetY(), zz.GetY());
+		    ctx.lineTo(zz.GetX(), zz.GetY());
 		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
 		    ctx.stroke();
 		    // c.closePath(); 

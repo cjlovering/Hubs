@@ -85,7 +85,8 @@
 	    //move
 	    
 	    //(VELOCITY_FACTOR / (n + 2));
-	    
+	    var vf = 1;
+
 	    //goal: stop just going in ducking circles
 	    if(true){
 		//		console.log("1 || 2", 1 || 2);

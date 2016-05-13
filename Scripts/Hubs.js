@@ -39,9 +39,7 @@
 			    }
 			});
 	        
-	    canvas.addEventListener("dblclick", function(eventInfo){
-		    ractive.toggle("visible");
-		});
+
 	    
 
 
@@ -51,6 +49,10 @@
 	    //if its working(?)
 	    if ( canvas.getContext ){
 
+		canvas.addEventListener("dblclick", function(eventInfo){
+		    ractive.toggle("visible");
+		});
+		
 		//get two-d context (as opposed to 3d)
 		ctx = canvas.getContext('2d');
 				

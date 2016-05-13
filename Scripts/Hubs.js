@@ -34,12 +34,14 @@
 			    data: {
 				threshold: .15,
 				star_num: 30,
-				rate: 15
+				rate: 15,
+				visible: false
 			    }
 			});
-
-
-
+		    
+	    canvas.addEventListener("dblclick", function(eventInfo){
+		    ractive.toggle("visible");
+		});
 
 
 

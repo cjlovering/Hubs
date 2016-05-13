@@ -192,7 +192,7 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/10)); //* (canvas.devicePixelRatio || 1)
+	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
     }
 
     //colors, size, and other painting helpers

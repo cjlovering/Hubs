@@ -14,3 +14,15 @@ canvas {
     border:0;
     margin:0 auto;
 }
+.floater {
+    draggable: true;
+    position: fixed;
+    bottom: 5%;
+    width: 25%;
+    right: 5%;
+    font-style: orange;
+    background-color: rgba(230, 230, 230, 0.35);
+    height: 150px;
+    border-radius: 5px 5px 5px 5px;
+    z-index: 1;
+}

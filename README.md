@@ -11,7 +11,24 @@ Idea: Graph of Hubs
 	 
 Employed: js, canvas, html5
 
+TODO:
+	3 phase:
+	  move
+	  dots
+	  edges - (a stack of edges?)
+	  
+	  opacity of edge: th - d / th
+	  opacity of star: 1 - o (edge) 
 
+pre migratiion to three step:
+75825e12e3f8087a77a60ac087c96e1d48051f6f
+
+problems:
+I want all o results before I draw
+     either edge
+     OR	    star
+solution:
+	move first, then do as I am. 
 
 #
 View it at: http://cjlovering.github.io/Hubs/

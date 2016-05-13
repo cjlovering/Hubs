@@ -3,30 +3,46 @@
     //variables
     var canvas, ctx;
     var resizeId;
-    var star_num = 40;
+    //    var star_num = 40;
     var stars = [];       //create stars
-    
+    var ractive;
     
     //constants
-    var RATE =  10;//100
+    //var RATE =  10;//100
     var BASE_SIZE = 4;
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
     var TWOPI = Math.PI * 2;
     var PI180 = Math.PI / 180;
-    var VELOCITY_FACTOR = 5;
     var N_CUTOFF = 6;
     var SPEED = 2;
-    var DEBUG = true;
-    var DEBUG2 = false;
     
     //edge requirements  - defined in configure canvas
     var build_threshold;
-    var break_threshold;
+    //var break_threshold;
 
     //when we are ready to get going
     $(document).ready(function(){
 	    
+	    /** RACTIVE CONTROLS **/
+	    $.get( 'Scripts/template.html' ).then( function ( template ) {
+		    ractive = new Ractive({
+			    el: '#template-container',
+
+			    template: template,
+
+			    data: {
+				threshold: .15,
+				star_num: 30,
+				rate: 15
+			    }
+			});
+
+
+
+
+
+
 	    //grab dat canvas
 	    canvas = document.getElementById('canvas');
             
@@ -40,7 +56,7 @@
 		configureCanvas();
 
 		//create all the stars, pseudo randomly
-		createStars();
+		createStars(ractive.get("star_num"));
 		// phase 1: draw hubs
 		drawStars();
 		// phase 2: draw edges
@@ -104,8 +120,8 @@
     * fills `array` with new stars at random locations
     * in the inner 1/3 box of the canvas
     */
-    function createStars(){
-	for ( var i = 0; i < star_num; i++)
+    function createStars(x){
+	for ( var i = 0; i < x; i++)
 	    {
 		var x = util.random(0,  canvas.width);
 		var y = util.random(0, canvas.height);
@@ -125,7 +141,13 @@
 	    setTimeout(function(){
 		    ctx = canvas.getContext('2d');
 		    ctx.clearRect(0, 0, canvas.width, canvas.height);
-		    
+		
+		    var l = ractive.get("star_num");
+		    var ll = stars.length;
+
+		    if (l > ll) createStars(l - ll);
+		    else if (ll > l) reduceStars (ll - l);
+    
 		    // phase 1: move stars
 		    moveStars();
 
@@ -134,7 +156,7 @@
 		    
 		    loop();
 		    
-                }, RATE);
+                }, ractive.get("rate"));
     }
 
 
@@ -152,6 +174,10 @@
 	for (s in stars) stars[s].Move();
     }
           
+    function reduceStars(x){
+	for (var i = 0; i < x; i++){stars.pop();}
+    }
+    
 
     
     function drawStars() {
@@ -165,7 +191,7 @@
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
-		var o = (build_threshold - d)/build_threshold;
+		var o = (ractive.get("threshold") - d)/ractive.get("threshold");
 		if (o > 0 && o != 1) { 
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
@@ -194,7 +220,8 @@
 	canvas.width = w;
 	canvas.height = h;
 	
-	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
+	ractive.set("threshold", Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)));
+	//	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
     }
 
     //colors, size, and other painting helpers

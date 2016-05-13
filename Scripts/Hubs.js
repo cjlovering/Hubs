@@ -32,7 +32,7 @@
 			    template: template,
 
 			    data: {
-				threshold: .15,
+				threshold: 0.15,
 				star_num: 30,
 				rate: 15,
 				visible: false
@@ -196,7 +196,7 @@
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
-		var o = (ractive.get("threshold") - d)/ractive.get("threshold");
+		var o = ((canvas.width * ractive.get("threshold")) - d)/(canvas.width * ractive.get("threshold"));
 		if (o > 0 && o != 1) { 
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());

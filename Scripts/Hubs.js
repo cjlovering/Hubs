@@ -196,6 +196,7 @@
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
+		var w = canvas.width;
 		var t = (ractive.get("threshold") * Math.sqrt(util.square(w) + util.square(h))); //* (canvas.devicePixelRatio || 1)
 
 		var o = (t - d)/t;

@@ -50,7 +50,7 @@
 	    //if its working(?)
 	    if ( canvas.getContext ){
 
-		ANGLE = Math.PI * ractive.get("angle");
+		ANGLE = Math.PI / ractive.get("angle");
 		
 		
 		canvas.addEventListener("dblclick", function(eventInfo){
@@ -148,6 +148,8 @@
     function loop(){       
 	if ( canvas.getContext ) 
 	    setTimeout(function(){
+		    ANGLE = Math.PI / ractive.get("angle");
+		    
 		    ctx = canvas.getContext('2d');
 		    ctx.clearRect(0, 0, canvas.width, canvas.height);
 		

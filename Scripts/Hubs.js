@@ -13,7 +13,7 @@
     var LIGHT = ["#ccff66","#FFD700", "#66ccff", "#ff6fcf", "#ff6666", "#72E6DA"];
     var VIBRANT = ["#7FFF00", "#0276FD", "#00FFFF", "#FF1493", "#FF0000"];    
     var TWOPI = Math.PI * 2;
-    var PI180 = Math.PI / 180;
+    //    var PI180 = Math.PI / 180;
     var N_CUTOFF = 6;
     var SPEED = 2;
     
@@ -34,7 +34,8 @@
 			    data: {
 				threshold: 0.28,
 				star_num: 30,
-				rate: 15,
+				rate: 5,
+				angle: 180,
 				visible: false
 			    }
 			});
@@ -99,8 +100,8 @@
 	    if ((this.y < 0) && (this.vy < 0)) this.vy *= -1;
        
 	    //goal: stop just going in ducking circles
-	    this.x += Math.round(this.vx * Math.cos(PI180 * this.y));
-	    this.y += Math.round(this.vy * Math.cos(PI180 * this.x));
+	    this.x += Math.round(this.vx * Math.cos((Math.PI / ractive.get("angle")) * this.y));
+	    this.y += Math.round(this.vy * Math.cos((Math.PI / ractive.get("angle")) * this.x));
 	    
 	};
 
@@ -108,7 +109,7 @@
 	this.Draw = function(n){
 
 	    ctx.fillStyle = paint.color(n);
-	    ctx.globalAlpha = (.20 + .20 * n);
+	    ctx.globalAlpha = (.30 + .17 * n);
 	    ctx.beginPath();
 	    
 	    //option -> switch on n: 2*n, polygon

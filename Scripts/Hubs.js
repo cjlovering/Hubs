@@ -196,28 +196,24 @@
 	var n;
 	var ss, zz;
 	for (s in stars) {
-	    var oo = 0;
 	    ss = stars[s];
 	    n = 0;
 	    for (z in stars) {
 		zz = stars[z];
 		var d = util.distance(ss.GetX(), ss.GetY(), zz.GetX(), zz.GetY());
-
-
+		
 		var o = (t - d)/t;
 		if (o > 0 && o != 1) { 
 		    ctx.beginPath();
 		    ctx.moveTo(ss.GetX(), ss.GetY());
 		    ctx.lineTo(zz.GetX(), zz.GetY());
-		    //		    ctx.strokeStyle = 'rgba(112, 226, 255, ' + o + ')';
-
 		    ctx.strokeStyle = 'rgba(0, 0, 0, ' + o + ')';	
 		    ctx.stroke();
 		    n+=1;
 		}
 	    }
        
-	    ss.Draw(n, 1 - (oo / n));
+	    ss.Draw(n);
 	}
     }
     
@@ -232,9 +228,6 @@
 	
 	canvas.width = w;
 	canvas.height = h;
-	
-	//ractive.set("threshold", 1/9); // 
-	//	build_threshold = Math.round(Math.sqrt(util.square(w) + util.square(h))*(1/9)); //* (canvas.devicePixelRatio || 1)
     }
 
     //colors, size, and other painting helpers
@@ -245,13 +238,12 @@
 	 * gets the color
 	 */
 	color: function(n){
-	    
+	    return VIBRANT[((Math.round(n/2))%VIBRANT.length)];	    
 	    //light
 	    if ( n < N_CUTOFF ) {
 		return LIGHT[n]
 	    //vibrant
 	    } else {
-		return VIBRANT[(n%VIBRANT.length)];
 	    }
 	},
 	/**
